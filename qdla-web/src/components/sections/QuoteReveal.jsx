@@ -9,7 +9,7 @@ const QuoteReveal = () => {
     });
     const opacity = useTransform(scrollYProgress, [0, 0.5, 0.8], [0, 1, 0]);
     const scale = useTransform(scrollYProgress, [0.5, 1], [1, 1.2]);
-    const quote = "If ever you seek the digital frontier, do not hesitate to build. Innovation is at four; but quality is welcome at any time.";
+    const quote = "QDLA - Born in Mangalore, we craft world-class digital experiences to serve brands across the globe.";
     const words = quote.split(" ");
 
     return (
@@ -18,7 +18,7 @@ const QuoteReveal = () => {
                 <div className="sticky top-0 h-screen flex items-center justify-center w-full px-6">
                 <motion.p 
                     style={{ opacity, scale }}
-                    className="relative text-3xl md:text-6xl lg:text-7xl font-bold text-center w-full md:w-3/4 text-white leading-tight z-10"
+                    className="relative text-3xl md:text-6xl lg:text-7xl font-display font-medium text-center w-full md:w-4/5 text-white leading-tight z-10"
                 >
                     {words.map((word, i) => {
                         const start = i / words.length * 0.5;
