@@ -23,48 +23,57 @@ const HorizontalScroll = () => {
     const cards = [
         { 
             title: "Smaeccan", 
-            category: "Social Media Content & Design", 
-            src: smaeccanImg 
+            category: "Luxury Non-Alcoholic Wines", 
+            src: smaeccanImg,
+            description: "Crafted through meticulous traditional winemaking" 
         },
         { 
-            title: "IrumFoods", 
-            category: "Branding, Packaging & Web Design", 
-            src: irumfoodsImg 
+            title: "Irum Foods", 
+            category: "Organic Farm-to-Table", 
+            src: irumfoodsImg,
+            description: "Natural products delivered directly to your doorstep" 
         },
         { 
             title: "Hanin Chicken", 
-            category: "Social Media & Promotions", 
-            src: haninchickenImg 
+            category: "Premium Poultry Brand", 
+            src: haninchickenImg,
+            description: "Fresh & Tender - Quality you can taste" 
         },
         { 
             title: "FM Studio", 
-            category: "Branding & Print Design", 
-            src: fmstudioImg 
+            category: "Luxury Salon & Academy", 
+            src: fmstudioImg,
+            description: "Makeup, Hair, Nails & Aesthetics Experts"
         },
         { 
-            title: "Luxavia Scarves", 
-            category: "Logo & Social Media Design", 
-            src: luxaviaImg 
+            title: "Luxavia", 
+            category: "High-End Fashion", 
+            src: luxaviaImg,
+            description: "Eleganace by Haneen - Premium Scarves" 
         },
         { 
             title: "Krochet Craft", 
-            category: "Brand Identity & Logo Design", 
-            src: krochetcraftImg 
+            category: "Artisanal Handmade Goods", 
+            src: krochetcraftImg,
+            description: "Bespoke handcrafted crochet designs" 
         },
         {
             title: "Burger82",
-            category: "Brand & Visual Identity",
-            src: burger82Img
+            category: "Gourmet Burger Brand",
+            src: burger82Img,
+            description: "Authentic flavors & bold visual identity"
         },
         {
             title: "Carrtel Vintage",
-            category: "Thrift & Streetwear Branding",
-            src: carrtelvintageImg
+            category: "Exclusive Vintage Apparel",
+            src: carrtelvintageImg,
+            description: "First vintage store in Mangalore"
         },
         {
             title: "Koheehaus",
-            category: "Concept Coffee Branding",
-            src: koheehausImg
+            category: "Specialty Coffee Roasters",
+            src: koheehausImg,
+            description: "Slow Monday Coffee Club - Brewing Culture"
         },
     ];
 
