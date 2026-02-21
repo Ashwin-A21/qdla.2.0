@@ -44,29 +44,56 @@ function App() {
 
     return (
         <CursorProvider>
-            <main className="min-h-screen w-full font-sans bg-[#0f0f0f]">
+            <main className="min-h-screen w-full font-sans bg-[#f7f7f5]">
                 <CustomCursor />
                 <Preloader />
                 <Navbar />
-                <HeroZoom />
+                <div id="home"><HeroZoom /></div>
                 <QuoteReveal />
-                <ProcessStickyCards />
+                <div id="services"><ProcessStickyCards /></div>
                 <ZoomParallax images={images} />
-                <HorizontalScroll />
-                <FeatureGrid />
+                <div id="work"><HorizontalScroll /></div>
+                <div id="about"><FeatureGrid /></div>
                 <ParallaxText />
-                <section className="py-24 md:py-40 bg-gray-50 px-6 z-40 relative border-t border-gray-100">
-                    <div className="max-w-5xl mx-auto text-center">
+                {/* CTA — dark, full-bleed */}
+                <section className="relative z-40 bg-[#0a0a0a] overflow-hidden px-6 py-24 md:py-40">
+                    {/* Noise texture */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+                        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")", backgroundSize: '256px 256px' }} />
+                    {/* Glow */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] rounded-full blur-[120px] pointer-events-none"
+                        style={{ background: 'radial-gradient(ellipse, rgba(56,181,232,0.15) 0%, transparent 70%)' }} />
+
+                    <div className="relative z-10 max-w-6xl mx-auto">
                         <RevealOnScroll>
-                            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-6 md:mb-8 text-black">Ready to transform<br/>your ideas into reality?</h2>
-                            <p className="text-xl md:text-2xl text-gray-500 mb-8 md:mb-12 font-medium">Join forward-thinking companies building with Qdla.</p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                                <MagneticButton className="px-8 md:px-12 py-4 md:py-6 bg-black text-white rounded-full font-bold text-lg md:text-xl hover:shadow-2xl hover:bg-neutral-800 transition-all w-full sm:w-auto">Start Your Project</MagneticButton>
-                                <MagneticButton className="px-8 md:px-12 py-4 md:py-6 bg-white text-black border border-gray-200 rounded-full font-bold text-lg md:text-xl hover:bg-gray-50 hover:border-gray-300 transition-all w-full sm:w-auto">View Our Work</MagneticButton>
+                            <p className="text-xs font-bold tracking-[0.35em] uppercase text-[#38b5e8] mb-8">
+                                Let's Build Together
+                            </p>
+                            <h2 className="text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-none mb-8 md:mb-12"
+                                style={{ fontVariantNumeric: 'tabular-nums' }}>
+                                Start your<br />
+                                <span style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.25)', color: 'transparent' }}>
+                                    next project.
+                                </span>
+                            </h2>
+                            <div className="h-px w-full bg-white/[0.08] mb-10" />
+                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                                <p className="text-white/40 text-lg md:text-xl font-medium max-w-md leading-relaxed">
+                                    Forward-thinking brands choose Qdla to design, build, and scale their digital presence.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                                    <MagneticButton className="px-8 py-4 bg-white text-[#0a0a0a] rounded-full font-bold text-base hover:bg-[#38b5e8] hover:text-white transition-colors shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(56,181,232,0.3)]">
+                                        Start a Project
+                                    </MagneticButton>
+                                    <MagneticButton className="px-8 py-4 bg-transparent text-white/60 border border-white/10 rounded-full font-bold text-base hover:text-white hover:border-white/30 transition-colors">
+                                        hello@qdla.in
+                                    </MagneticButton>
+                                </div>
                             </div>
                         </RevealOnScroll>
                     </div>
                 </section>
+
                 <Footer />
             </main>
         </CursorProvider>

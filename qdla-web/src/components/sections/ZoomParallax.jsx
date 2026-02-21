@@ -36,7 +36,9 @@ function ZoomParallax({ images }) {
                             style={{ scale: scales[index], rotate: rotations[index] }}
                             className={cn(
                                 "absolute top-0 flex h-full w-full items-center justify-center",
-                                "items-center justify-center", 
+                                "items-center justify-center",
+                                // Center image sits on top of others
+                                index === 0 ? "z-10" : "z-0",
                                 // Desktop Positioning (md+)
                                 index === 1 && "md:[&>div]:!-top-[30vh] md:[&>div]:!left-[5vw] md:[&>div]:!h-[30vh] md:[&>div]:!w-[35vw]",
                                 index === 2 && "md:[&>div]:!-top-[10vh] md:[&>div]:!-left-[25vw] md:[&>div]:!h-[45vh] md:[&>div]:!w-[20vw]",
@@ -54,7 +56,7 @@ function ZoomParallax({ images }) {
                             )}
                         >
                             <div 
-                                className="relative h-[25vh] w-[35vw] md:w-[25vw] overflow-hidden rounded-xl md:rounded-2xl shadow-2xl border border-white/10 group bg-neutral-900"
+                                className="relative h-[25vh] w-[35vw] md:w-[25vw] overflow-hidden shadow-2xl group bg-neutral-900"
                                 onMouseEnter={() => setCursorVariant("text")}
                                 onMouseLeave={() => setCursorVariant("default")}
                             >
