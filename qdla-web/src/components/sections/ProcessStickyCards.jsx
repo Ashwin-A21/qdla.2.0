@@ -1,96 +1,154 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const serviceCategories = [
+const services = [
     {
-        id: 'web', number: '01', category: 'Web Development & Design', tagline: 'Pixel-perfect. Performance-first.',
-        accent: '#38b5e8',
-        cardCls: 'bg-white border border-[#38b5e8]/20 hover:shadow-[0_12px_60px_rgba(56,181,232,0.10)]',
-        tagBg: 'bg-[#f0f9ff]', tagText: 'text-[#38b5e8]', tagBorder: 'border-[#38b5e8]/20',
-        icon: (<svg viewBox="0 0 48 48" fill="none" className="w-9 h-9" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="8" width="40" height="28" rx="3"/><path d="M16 44h16M24 36v8"/><path d="M4 28h40"/><path d="M14 20l4 4-4 4M22 24h8" strokeLinecap="round"/></svg>),
-        services: [
-            { name: 'Full Stack Web Development', desc: 'Front-end experience + back-end logic & database management — end to end.', tag: 'Frontend · Backend · DB' },
-            { name: 'Web Design', desc: 'Layout, UI/UX, and visual aesthetics. Every pixel intentional.', tag: 'UI · UX · Visual' },
-            { name: 'Website Services', desc: 'Maintenance, deployment, and optimisation to keep your site sharp.', tag: 'Deploy · Maintain · SEO' },
-        ],
+        number: '01',
+        title: 'Website Development & Design',
+        description: 'We design and develop responsive, high-performance websites that blend modern aesthetics with intuitive user experience, helping your brand stand out across all devices.',
+        tags: ['UI/UX', 'Frontend', 'Backend', 'SEO'],
+        accent: '#0ea5e9',
+        bg: '#bae6fd',
+        border: 'rgba(14,165,233,0.45)',
     },
     {
-        id: 'design', number: '02', category: 'Creative & Visual Design', tagline: 'Concepts that captivate. Visuals that convert.',
-        accent: '#8b5cf6',
-        cardCls: 'bg-white border border-purple-200/60 hover:shadow-[0_12px_60px_rgba(139,92,246,0.10)]',
-        tagBg: 'bg-[#faf5ff]', tagText: 'text-purple-600', tagBorder: 'border-purple-200',
-        icon: (<svg viewBox="0 0 48 48" fill="none" className="w-9 h-9" stroke="currentColor" strokeWidth="1.5"><path d="M24 4C13 4 4 13 4 24s9 20 20 20c4 0 6-2 6-6 0-1.5-.5-3-1.5-4.5C27.5 32 28 31 28 30c0-3.3 2.7-6 6-6h4c4.4 0 6-2.7 6-6C44 13 35 4 24 4Z"/><circle cx="14" cy="24" r="2" fill="currentColor"/><circle cx="18" cy="15" r="2" fill="currentColor"/><circle cx="30" cy="13" r="2" fill="currentColor"/><circle cx="36" cy="21" r="2" fill="currentColor"/></svg>),
-        services: [
-            { name: 'Graphic Design', desc: 'Visual content for print and digital — brochures to full brand kits.', tag: 'Print · Digital · Brand' },
-            { name: 'Digital Design', desc: 'Interfaces, icons, and elements that feel alive and intuitive.', tag: 'Icons · UI · Motion' },
-            { name: 'Social Media Content', desc: 'Engaging posts, stories, and graphics for every platform.', tag: 'Posts · Stories · Reels' },
-        ],
+        number: '02',
+        title: 'Social Media Management',
+        description: 'From strategy and content creation to analytics and optimization, we manage your social presence to increase engagement, strengthen brand identity, and deliver measurable growth.',
+        tags: ['Strategy', 'Content', 'Analytics', 'Growth'],
+        accent: '#7c3aed',
+        bg: '#ddd6fe',
+        border: 'rgba(124,58,237,0.45)',
     },
     {
-        id: 'marketing', number: '03', category: 'Marketing & Branding', tagline: 'Stories that stick. Strategies that scale.',
-        accent: '#f97316',
-        cardCls: 'bg-white border border-orange-200/60 hover:shadow-[0_12px_60px_rgba(249,115,22,0.10)]',
-        tagBg: 'bg-[#fff7ed]', tagText: 'text-orange-600', tagBorder: 'border-orange-200',
-        icon: (<svg viewBox="0 0 48 48" fill="none" className="w-9 h-9" stroke="currentColor" strokeWidth="1.5"><path d="M8 36V20l16-12 16 12v16" strokeLinejoin="round"/><rect x="18" y="26" width="12" height="10"/><circle cx="24" cy="10" r="2" fill="currentColor"/></svg>),
-        services: [
-            { name: 'Digital Marketing', desc: 'SEO, PPC, email campaigns, and analytics to grow your reach online.', tag: 'SEO · PPC · Campaigns' },
-            { name: 'Brand Marketing', desc: 'Cohesive identity and narrative that builds long-term brand equity.', tag: 'Identity · Strategy · Equity' },
-        ],
+        number: '03',
+        title: 'Photography',
+        description: 'Professional photography that captures your brand, products, and moments with creativity, precision, and strong visual storytelling.',
+        tags: ['Brand', 'Product', 'Editorial', 'Events'],
+        accent: '#d97706',
+        bg: '#fde68a',
+        border: 'rgba(217,119,6,0.45)',
+    },
+    {
+        number: '04',
+        title: 'Graphic Design',
+        description: 'Impactful design solutions including branding, marketing creatives, and digital assets crafted to communicate your message clearly and elevate your visual identity.',
+        tags: ['Branding', 'Print', 'Digital', 'Identity'],
+        accent: '#db2777',
+        bg: '#fbcfe8',
+        border: 'rgba(219,39,119,0.45)',
+    },
+    {
+        number: '05',
+        title: 'Video Production',
+        description: 'Complete video production services covering concept development, filming, editing, and delivery to create engaging content for marketing, storytelling, and social platforms.',
+        tags: ['Concept', 'Filming', 'Editing', 'Social'],
+        accent: '#dc2626',
+        bg: '#fecaca',
+        border: 'rgba(220,38,38,0.45)',
+    },
+    {
+        number: '06',
+        title: 'Digital Marketing',
+        description: 'Data-driven campaigns across SEO, PPC, email, and performance channels to grow your reach, drive qualified traffic, and convert audiences into loyal customers.',
+        tags: ['SEO', 'PPC', 'Email', 'Performance'],
+        accent: '#059669',
+        bg: '#a7f3d0',
+        border: 'rgba(5,150,105,0.45)',
+    },
+    {
+        number: '07',
+        title: 'Brand Strategy',
+        description: 'Cohesive brand identity and narrative built from research and positioning — creating a distinctive presence that resonates with your audience and builds lasting equity.',
+        tags: ['Positioning', 'Identity', 'Voice', 'Equity'],
+        accent: '#ea580c',
+        bg: '#fed7aa',
+        border: 'rgba(234,88,12,0.45)',
     },
 ];
 
-const ServiceItem = ({ name, desc, tag, accent, tagBg, tagText, tagBorder, index }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: index * 0.08 }}
-        className="group p-5 rounded-2xl border border-black/[0.05] bg-gray-50/70
-                   hover:bg-white hover:border-black/10 hover:shadow-sm transition-all duration-300 cursor-default"
-    >
-        <div className="flex items-start gap-3">
-            <div className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
-            <div>
-                <h4 className="text-[#0f0f0f] font-semibold text-[15px] mb-1">{name}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed mb-2">{desc}</p>
-                <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full border ${tagBg} ${tagText} ${tagBorder}`}>{tag}</span>
-            </div>
-        </div>
-    </motion.div>
-);
+const CARD_OFFSET = 14; // px gap between stacked cards
 
-const CategoryCard = ({ cat, i, scrollYProgress }) => {
-    const range  = [i / serviceCategories.length, (i + 1) / serviceCategories.length];
-    const scale  = useTransform(scrollYProgress, range, [1, 0.97]);
-    const opacity = useTransform(scrollYProgress, range, [1, 0.9]);
+const ServiceCard = ({ service, index, total, scrollYProgress }) => {
+    const start = index / total;
+    const end   = (index + 1) / total;
+    const scale   = useTransform(scrollYProgress, [start, end], [1, 1 - (total - index - 1) * 0.005]);
+    const y       = useTransform(scrollYProgress, [start, end], [0, -(total - index - 1) * CARD_OFFSET]);
+
     return (
-        <motion.div style={{ scale, opacity }} className="sticky top-24 mb-10 last:mb-0">
-            <div className={`relative rounded-[2rem] p-8 md:p-12 overflow-hidden shadow-sm transition-shadow duration-300 ${cat.cardCls}`}>
-                <span className="absolute -bottom-6 -right-2 text-[120px] md:text-[160px] font-black leading-none select-none pointer-events-none"
-                    style={{ color: `${cat.accent}08` }}>{cat.number}</span>
-                <div className="absolute top-0 left-8 right-8 h-[2px] rounded-full opacity-40"
-                    style={{ background: `linear-gradient(to right, ${cat.accent}, transparent)` }} />
-                <div className="flex flex-col md:flex-row md:items-start gap-5 mb-8">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm border"
-                        style={{ backgroundColor: `${cat.accent}12`, borderColor: `${cat.accent}25`, color: cat.accent }}>
-                        {cat.icon}
+        <motion.div
+            style={{
+                scale,
+                y,
+                top: `${80 + index * CARD_OFFSET}px`,
+                zIndex: index + 1,
+            }}
+            className="sticky w-full"
+        >
+            <div
+                className="relative bg-white rounded-[2rem] overflow-hidden
+                            shadow-[0_2px_24px_rgba(0,0,0,0.07)] transition-shadow duration-500
+                            hover:shadow-[0_8px_48px_rgba(0,0,0,0.12)]
+                            flex flex-col md:flex-row min-h-[200px] md:min-h-[200px]"
+                style={{ border: `1px solid ${service.border}` }}
+            >
+                {/* Colored left accent strip */}
+                <div
+                    className="hidden md:flex flex-col items-center justify-between pt-10 pb-10 px-5 flex-shrink-0 min-w-[88px]"
+                    style={{ backgroundColor: service.bg, borderRight: `1px solid ${service.border}` }}
+                >
+                    <span
+                        className="font-body text-[9px] font-black tracking-[0.5em] uppercase select-none"
+                        style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', color: service.accent, opacity: 0.6 }}
+                    >
+                        Service
+                    </span>
+                    <span className="font-header text-3xl font-black select-none" style={{ color: service.accent, opacity: 0.25 }}>
+                        {service.number}
+                    </span>
+                </div>
+
+                {/* Main content */}
+                <div className="flex-1 p-7 md:p-10 flex flex-col justify-between gap-5">
+                    {/* Mobile number badge */}
+                    <span
+                        className="font-body md:hidden self-start text-[10px] font-black tracking-[0.4em] uppercase px-3 py-1 rounded-full"
+                        style={{ color: service.accent, backgroundColor: service.bg }}
+                    >
+                        {service.number}
+                    </span>
+
+                    <div>
+                        {/* Colored top line */}
+                        <div className="w-10 h-[3px] rounded-full mb-5" style={{ backgroundColor: service.accent }} />
+                        <h3 className="font-header text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#0f0f0f] leading-tight mb-3">
+                            {service.title}
+                        </h3>
+                        <p className="font-body text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl">
+                            {service.description}
+                        </p>
                     </div>
-                    <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: cat.accent }}>{cat.number}</span>
-                            <span className="text-black/20 text-xs">—</span>
-                            <span className="text-black/30 text-xs uppercase tracking-widest">Service Category</span>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-black text-[#0f0f0f] tracking-tight">{cat.category}</h3>
-                        <p className="text-gray-400 mt-1 text-sm italic font-medium">{cat.tagline}</p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                        {service.tags.map(tag => (
+                            <span
+                                key={tag}
+                                className="font-body text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                                style={{ color: service.accent, backgroundColor: service.bg, border: `1px solid ${service.border}` }}
+                            >
+                                {tag}
+                            </span>
+                        ))}
                     </div>
                 </div>
-                <div className="h-px mb-8 rounded-full" style={{ background: `linear-gradient(to right, ${cat.accent}30, transparent)` }} />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                    {cat.services.map((s, idx) => (
-                        <ServiceItem key={s.name} {...s}
-                            accent={cat.accent} tagBg={cat.tagBg} tagText={cat.tagText} tagBorder={cat.tagBorder} index={idx} />
-                    ))}
+
+                {/* Ghost watermark number */}
+                <div
+                    className="font-header absolute right-5 bottom-0 text-[110px] md:text-[140px] font-black leading-none select-none pointer-events-none"
+                    style={{ color: service.accent, opacity: 0.04 }}
+                >
+                    {service.number}
                 </div>
             </div>
         </motion.div>
@@ -99,31 +157,50 @@ const CategoryCard = ({ cat, i, scrollYProgress }) => {
 
 const ProcessStickyCards = () => {
     const container = useRef(null);
-    const { scrollYProgress } = useScroll({ target: container, offset: ['start start', 'end end'] });
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start start', 'end end'],
+    });
+
+    // Remove artificial min height to resolve excessive whitespace issue. 
+    // The native stack flow provides adequate scroll spacing.
+
     return (
-        <section ref={container} className="relative z-40 bg-[#f7f7f5] pt-16 md:pt-28 pb-24">
+        <section ref={container} className="relative z-40 bg-[#f7f7f5] pb-24">
             <div className="absolute inset-0 pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(circle, rgba(15,15,15,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-            <div className="relative z-10 text-center px-6 mb-16 md:mb-24">
+
+            {/* Section header */}
+            <div className="relative z-10 text-center px-6 pt-16 md:pt-24 pb-4 md:pb-8">
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                    <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#38b5e8] mb-4 px-4 py-1.5 rounded-full border border-[#38b5e8]/25 bg-[#38b5e8]/6">
+                    <span className="font-body inline-block text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-[#38b5e8] mb-4
+                                     px-4 py-1.5 rounded-full border border-[#38b5e8]/25 bg-[#38b5e8]/6">
                         What We Do
                     </span>
-                    <h2 className="text-5xl md:text-8xl font-black text-[#0f0f0f] tracking-tighter leading-none mb-4">
+                    <h2 className="font-header text-5xl md:text-8xl font-black uppercase text-[#0f0f0f] tracking-tighter leading-none mb-6">
                         Our <span className="text-[#38b5e8]">Services</span>
                     </h2>
-                    <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-                        From concept to conversion — every touchpoint of your digital presence.
+                    <p className="font-body text-gray-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+                        From concept to launch — every service your brand needs to grow.
                     </p>
                 </motion.div>
                 <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="mt-8 h-px max-w-xs mx-auto origin-left"
-                    style={{ background: 'linear-gradient(to right, transparent, #38b5e8, transparent)' }} />
+                    className="mt-8 h-px max-w-xs mx-auto"
+                    style={{ background: 'linear-gradient(to right, transparent, #38b5e8, transparent)' }}
+                />
             </div>
-            <div className="relative z-10 px-4 md:px-8 lg:px-16 xl:px-24 max-w-6xl mx-auto space-y-8">
-                {serviceCategories.map((cat, i) => (
-                    <CategoryCard key={cat.id} cat={cat} i={i} scrollYProgress={scrollYProgress} />
+
+            {/* Sticky cards */}
+            <div className="relative z-10 px-4 md:px-10 lg:px-20 xl:px-32 max-w-5xl mx-auto pb-16">
+                {services.map((service, i) => (
+                    <ServiceCard
+                        key={service.number}
+                        service={service}
+                        index={i}
+                        total={services.length}
+                        scrollYProgress={scrollYProgress}
+                    />
                 ))}
             </div>
         </section>
