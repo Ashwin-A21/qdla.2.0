@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { Code2, Rocket, Layers, Cpu, Globe, ArrowRightCircle } from 'lucide-react';
+import { Palette, Code2, ShoppingBag, Smartphone, Zap, Layers } from 'lucide-react';
 import { CursorContext } from '../../context/CursorContext';
 import RevealOnScroll from '../ui/RevealOnScroll';
 
@@ -47,12 +47,12 @@ const FeatureCard = ({ icon: Icon, title, desc, delay = 0 }) => {
 };
 
 const features = [
-    { icon: Code2,            title: 'Clean Architecture',   desc: 'Modern frameworks like Next.js and React, building maintainable, scalable codebases for the long run.' },
-    { icon: Rocket,           title: 'Performance First',    desc: 'Optimized Web Vitals from day one — your application loads instantly and ranks high on search.' },
-    { icon: Layers,           title: 'Full-Stack Solutions', desc: 'From database design to frontend animations, we handle the entire development lifecycle.' },
-    { icon: Cpu,              title: 'AI Integration',       desc: 'Leverage LLMs and generative AI to automate workflows and create intelligent user journeys.' },
-    { icon: Globe,            title: 'Global CDN',           desc: 'Deploying to the edge ensures fast, low-latency access from anywhere in the world.' },
-    { icon: ArrowRightCircle, title: 'Rapid Deployment',    desc: 'CI/CD pipelines for automated testing and seamless one-click production deployments.' },
+    { icon: Palette,      title: 'UI/UX & Brand Design',   desc: 'Crafting stunning, human-centric interfaces and brand identities that leave a lasting impression.' },
+    { icon: Code2,        title: 'Custom Web Development', desc: 'Building scalable, high-performance web applications tailored specifically to your business needs.' },
+    { icon: ShoppingBag,  title: 'E-Commerce Solutions',   desc: 'Designing seamless, conversion-optimized shopping experiences that turn visitors into loyal customers.' },
+    { icon: Smartphone,   title: 'Mobile-First Experiences',desc: 'Ensuring your digital presence is strictly responsive, engaging, and optimized across all devices.' },
+    { icon: Zap,          title: 'Performance & SEO',      desc: 'Enhancing website speed, web vitals, and accessibility to maximize your organic reach and retention.' },
+    { icon: Layers,       title: 'Digital Strategy',       desc: 'From initial concept modeling to long-term ecosystem maintenance, we cover the full digital lifecycle.' },
 ];
 
 const FeatureGrid = () => (
@@ -67,14 +67,14 @@ const FeatureGrid = () => (
                         Our Capabilities
                     </span>
                     <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-5 text-[#0f0f0f] leading-tight">
-                        Built for scale,{' '}
+                        Expertise that drives{' '}
                         <span className="text-transparent bg-clip-text"
                             style={{ backgroundImage: 'linear-gradient(135deg, #38b5e8, #6366f1)' }}>
-                            designed for humans.
+                            digital excellence.
                         </span>
                     </h2>
                     <p className="text-lg md:text-xl text-gray-500 max-w-2xl font-medium leading-relaxed">
-                        We don't just write code — we architect solutions optimized for speed, SEO, and lasting user retention.
+                        We blend striking aesthetics with robust engineering to create premium digital products that elevate your brand and engage your audience.
                     </p>
                 </RevealOnScroll>
             </div>

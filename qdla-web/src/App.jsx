@@ -83,7 +83,10 @@ function App() {
                                     Forward-thinking brands choose Qdla to design, build, and scale their digital presence.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-                                    <MagneticButton className="px-8 py-4 bg-white text-[#0a0a0a] rounded-full font-bold text-base hover:bg-[#38b5e8] hover:text-white transition-colors shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(56,181,232,0.3)]">
+                                    <MagneticButton 
+                                        onClick={() => window.open('https://wa.me/919945507345?text=Hello%20I%20just%20reviewed%20your%20website%20and%20would%20like%20to%20enquire%20about%20your%20services', '_blank')}
+                                        className="px-8 py-4 bg-white text-[#0a0a0a] rounded-full font-bold text-base hover:bg-[#38b5e8] hover:text-white transition-colors shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(56,181,232,0.3)]"
+                                    >
                                         Start a Project
                                     </MagneticButton>
                                     <MagneticButton className="px-8 py-4 bg-transparent text-white/60 border border-white/10 rounded-full font-bold text-base hover:text-white hover:border-white/30 transition-colors">

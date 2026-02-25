@@ -18,8 +18,8 @@ const HeroZoom = () => {
     const titleScale = useTransform(scrollYProgress, [0, 0.5], [0.5, 1]);
     const titleOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
     const titleBlur = useTransform(scrollYProgress, [0, 0.3], ["10px", "0px"]);
-    // Start slightly lower (10%) and move to slightly higher (-10%)
-    const titleY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]); 
+    // Keep perfectly centered while scrolling
+    const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]); 
 
     return (
         <div ref={containerRef} className="relative h-[200vh] md:h-[250vh] w-full bg-[#0f0f0f]">
@@ -34,7 +34,7 @@ const HeroZoom = () => {
 
                 <motion.div 
                     style={{ scale: titleScale, opacity: titleOpacity, filter: useTransform(titleBlur, (v) => `blur(${v})`), y: titleY }}
-                    className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none drop-shadow-2xl px-4 mt-20 md:mt-32"
+                    className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none drop-shadow-2xl px-4 -mt-16 md:-mt-32"
                 >
                     <QdlaLogo className="text-white h-auto w-[50vw] md:w-[20vw] filter drop-shadow-lg" />
                     <motion.p 
