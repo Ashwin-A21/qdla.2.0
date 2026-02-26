@@ -34,13 +34,13 @@ function App() {
     }, []);
 
     const images = [
-        { src: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1280&q=80', alt: 'Fashion & Lifestyle' },
-        { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1280&q=80', alt: 'Culinary Arts' },
-        { src: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1280&q=80', alt: 'Beauty & Wellness' },
-        { src: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1280&q=80', alt: 'Social Media Marketing' },
-        { src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1280&q=80', alt: 'Brand Identity Design' },
-        { src: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1280&q=80', alt: 'Handcrafted Art' },
-        { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1280&q=80', alt: 'Creative Collaboration' },
+        { src: '/images/showcase/website.png', alt: 'Website' },
+        { src: '/images/showcase/photography.png', alt: 'Photography' },
+        { src: '/images/showcase/design.png', alt: 'Design' },
+        { src: '/images/showcase/social_media.png', alt: 'Social Media' },
+        { src: '/images/showcase/branding.png', alt: 'Branding' },
+        // { src: '/images/showcase/website_2.png', alt: 'Website Showcase' },
+        { src: '/images/showcase/design_2.png', alt: 'Design Showcase' },
     ];
 
     return (
@@ -89,9 +89,13 @@ function App() {
                                     >
                                         Start a Project
                                     </MagneticButton>
-                                    <MagneticButton className="px-8 py-4 bg-transparent text-white/60 border border-white/10 rounded-full font-bold text-base hover:text-white hover:border-white/30 transition-colors">
-                                        hello@qdla.in
+                                    <MagneticButton 
+                                        onClick={() => window.location.href = 'mailto:info@qdla.in'}
+                                        className="px-8 py-4 bg-transparent text-white/60 border border-white/10 rounded-full font-bold text-base hover:text-white hover:border-white/30 transition-colors"
+                                    >
+                                        info@qdla.in
                                     </MagneticButton>
+
                                 </div>
                             </div>
                         </RevealOnScroll>

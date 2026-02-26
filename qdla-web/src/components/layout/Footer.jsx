@@ -39,7 +39,7 @@ const Footer = () => (
                     </span>
                 </RevealOnScroll>
 
-                <div className="grid grid-cols-2 gap-8 md:gap-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
                     <div>
                         <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Company</h4>
                         <ul className="space-y-1">
@@ -56,6 +56,15 @@ const Footer = () => (
                             <FooterLink>LinkedIn</FooterLink>
                             <FooterLink>GitHub</FooterLink>
                             <FooterLink>Instagram</FooterLink>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Contact</h4>
+                        <ul className="space-y-1">
+                            <FooterLink href="mailto:info@qdla.in">info@qdla.in</FooterLink>
+                            <FooterLink href="mailto:sales@qdla.in">sales@qdla.in</FooterLink>
+                            <FooterLink href="mailto:raj@qdla.in">raj@qdla.in</FooterLink>
+                            <FooterLink href="mailto:shahir@qdla.in">shahir@qdla.in</FooterLink>
                         </ul>
                     </div>
                 </div>
