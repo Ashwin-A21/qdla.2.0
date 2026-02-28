@@ -1,0 +1,115 @@
+import React, { useEffect, useRef } from 'react';
+import anime from 'animejs';
+
+const AnimatedLogo = ({ className }) => {
+    const svgRef = useRef(null);
+    const groupRef = useRef(null);
+    
+    useEffect(() => {
+        let timer;
+        let floatAnim;
+        
+        const playAnimation = () => {
+            if (!svgRef.current) return;
+            
+            // clear any previous animations on these targets
+            anime.remove(svgRef.current.querySelectorAll('.svg-path'));
+            anime.remove(svgRef.current.querySelectorAll('.svg-star'));
+            
+            const tl = anime.timeline({
+                easing: 'easeInOutQuad'
+            });
+
+            // 1. Outline Stage
+            tl.add({
+                targets: svgRef.current.querySelectorAll('.svg-path'),
+                strokeDashoffset: [anime.setDashoffset, 0],
+                strokeOpacity: [0, 1],
+                duration: 2000,
+                delay: anime.stagger(200)
+            })
+            // 2. Star Specific Rotation during outlining
+            .add({
+                targets: svgRef.current.querySelectorAll('.svg-star'),
+                rotate: ['0turn', '1turn'],
+                duration: 2000,
+                easing: 'easeInOutQuad'
+            }, 0)
+            // 3. Fill Stage
+            .add({
+                targets: svgRef.current.querySelectorAll('.svg-path'),
+                fillOpacity: [0, 1],
+                strokeOpacity: [1, 0],
+                duration: 1000,
+                offset: '-=500' 
+            });
+
+            if (!floatAnim) {
+                floatAnim = anime({
+                    targets: groupRef.current,
+                    translateY: [-10, 10],
+                    duration: 3000,
+                    direction: 'alternate',
+                    loop: true,
+                    easing: 'easeInOutSine'
+                });
+            }
+        };
+
+        playAnimation();
+        // The animation needs to repeat every 15 secs
+        timer = setInterval(playAnimation, 15000);
+
+        return () => {
+            clearInterval(timer);
+            if (svgRef.current) {
+                anime.remove(svgRef.current.querySelectorAll('.svg-path'));
+                anime.remove(svgRef.current.querySelectorAll('.svg-star'));
+            }
+            if (floatAnim) {
+                floatAnim.pause();
+                anime.remove(groupRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <svg id="animated-svg" ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340.06 656.4" className={className}>
+            <defs>
+                <linearGradient id="linear-gradient" x1="2354.05" y1="-4022.2" x2="2508.61" y2="-4022.2" gradientTransform="translate(4387.85 2530.49) rotate(-90)" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stopColor="#064ec1"/>
+                    <stop offset=".32" stopColor="#1f76d1"/>
+                    <stop offset=".51" stopColor="#2b88d9"/>
+                    <stop offset=".68" stopColor="#319ee0"/>
+                    <stop offset=".86" stopColor="#36afe6"/>
+                    <stop offset="1" stopColor="#38b5e8"/>
+                </linearGradient>
+            </defs>
+            <style>
+                {`
+                    .svg-star {
+                        transform-origin: 365px 95px;
+                    }
+                    .svg-path {
+                        stroke: #38bdf8;
+                        stroke-width: 1.5px;
+                        fill-opacity: 0;
+                        stroke-opacity: 0;
+                    }
+                `}
+            </style>
+            <g id="logo-group" ref={groupRef}>
+                {/* Star Path */}
+                <path className="svg-path svg-star" fill="url(#linear-gradient)" d="M364.43,35.48c-2.79,15.95-10.46,30.16-21.45,41.06-11.07,11.16-25.54,18.92-41.76,21.62-4.18.7-8.54,1.05-12.9,1.05,4.36,0,8.72.35,12.9,1.05,16.21,2.7,30.69,10.46,41.76,21.62,10.98,10.9,18.66,25.11,21.45,40.97.78,4.45,1.22,8.98,1.22,13.6,0-4.62.44-9.15,1.22-13.6,5.67-31.99,31.04-57.19,63.2-62.59,4.18-.7,8.54-1.05,12.9-1.05-4.36,0-8.72-.35-12.9-1.05-16.21-2.7-30.69-10.46-41.76-21.62-10.98-10.9-18.66-25.11-21.45-41.06-.78-4.45-1.22-8.98-1.22-13.6,0,4.62-.44,9.15-1.22,13.6ZM366.17,74.44c1.05,6.19,4.01,11.77,8.28,15.95,4.27,4.36,9.94,7.32,16.21,8.37,1.57.26,3.31.44,4.97.44-1.66,0-3.4.09-4.97.35-12.47,2.09-22.32,11.86-24.5,24.32-.35,1.66-.52,3.49-.52,5.23,0-1.74-.17-3.57-.44-5.23-1.13-6.19-4.1-11.68-8.28-15.87-4.36-4.36-9.94-7.41-16.21-8.46-1.66-.26-3.31-.35-5.06-.35,1.74,0,3.4-.17,5.06-.44,6.28-1.05,11.86-4.01,16.21-8.37s7.15-9.76,8.28-15.95c.26-1.66.44-3.49.44-5.23,0,1.74.17,3.57.52,5.23Z"/>
+                
+                {/* Logo Letter Paths */}
+                <path className="svg-path svg-letter" fill="#fff" d="M780.41,340.48c0,50.49-17.83,93.56-53.48,129.21-35.66,35.66-78.73,53.48-129.21,53.48s-93.56-17.82-129.21-53.48c-35.66-35.65-53.48-78.73-53.48-129.21s17.82-93.56,53.48-129.21c35.65-35.65,78.72-53.48,129.21-53.48h33.22l33.22,99.65h-66.43c-23.04,0-42.63,8.08-58.8,24.24-16.17,16.17-24.24,35.77-24.24,58.8s8.08,42.63,24.24,58.79c16.17,16.17,35.76,24.25,58.8,24.25s42.62-8.08,58.79-24.25c16.16-16.16,24.25-35.76,24.25-58.79V33.22L780.41,0v340.48Z"/>
+                <rect className="svg-path svg-letter" fill="#fff" x="829.81" width="99.65" height="523.17"/>
+                <path className="svg-path svg-letter" fill="#fff" d="M1340.06,340.48v180.6l-98.51-32.84v-147.76c0-22.77-8-42.14-23.97-58.12-15.98-15.98-35.36-23.97-58.12-23.97s-42.14,7.99-58.12,23.97c-15.98,15.98-23.97,35.36-23.97,58.12s7.99,42.14,23.97,58.12c15.98,15.98,35.36,23.97,58.12,23.97h65.67l-32.84,98.51h-32.84c-49.91,0-92.49-17.62-127.74-52.86-35.25-35.24-52.86-77.82-52.86-127.73s17.62-92.49,52.86-127.73c35.25-35.24,77.83-52.86,127.74-52.86s92.49,17.62,127.73,52.86c35.23,35.25,52.86,77.82,52.86,127.73Z"/>
+                <path className="svg-path svg-letter" fill="#fff" d="M365.65,340.62v315.79l-99.72-33.24v-282.55c0-23.04-8.09-42.65-24.27-58.83-16.18-16.18-35.79-24.27-58.83-24.27s-42.66,8.09-58.84,24.27c-16.18,16.18-24.26,35.79-24.26,58.83s8.08,42.66,24.26,58.84c16.18,16.18,35.79,24.26,58.84,24.26h66.48l-33.25,99.72h-33.24c-50.53,0-93.64-17.84-129.31-53.51C17.84,434.25,0,391.15,0,340.62s17.84-93.63,53.51-129.3c35.68-35.68,78.78-53.52,129.31-53.52s93.63,17.85,129.3,53.52c35.68,35.68,53.52,78.78,53.52,129.3Z"/>
+            </g>
+        </svg>
+    );
+};
+
+export default AnimatedLogo;

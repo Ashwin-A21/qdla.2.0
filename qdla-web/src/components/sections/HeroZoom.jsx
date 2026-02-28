@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import QdlaLogo from '../ui/QdlaLogo';
+import AnimatedLogo from '../ui/AnimatedLogo';
 import spaceImg from '../../assets/hero/space2.png';
 import portalHoleImg from '../../assets/hero/portal-hole.png';
 
@@ -36,7 +36,7 @@ const HeroZoom = () => {
                     style={{ scale: titleScale, opacity: titleOpacity, filter: useTransform(titleBlur, (v) => `blur(${v})`), y: titleY }}
                     className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none drop-shadow-2xl px-4 -mt-16 md:-mt-32"
                 >
-                    <QdlaLogo className="text-white h-auto w-[50vw] md:w-[20vw] filter drop-shadow-lg" />
+                    <AnimatedLogo className="text-white h-auto w-[50vw] md:w-[20vw] filter drop-shadow-lg" />
                     <motion.p 
                         initial={{ opacity: 0 }} 
                         animate={{ opacity: 1 }} 
