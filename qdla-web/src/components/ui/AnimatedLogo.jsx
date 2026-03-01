@@ -95,7 +95,7 @@ const AnimatedLogo = ({ className, isZooming = true }) => {
                         transform-origin: 365px 95px;
                     }
                     .svg-path {
-                        stroke: #38bdf8;
+                        stroke: #ffffff;
                         stroke-width: 1.5px;
                         fill-opacity: 0;
                         stroke-opacity: 0;

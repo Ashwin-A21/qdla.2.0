@@ -23,7 +23,7 @@ const HorizontalScroll = () => {
     const { scrollYProgress } = useScroll({ target: targetRef });
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-80%"]);
     const { setCursorVariant } = useContext(CursorContext);
-    const [showAll, setShowAll] = useState(false);
+    const [showAll, setShowAll] = useState(true);
 
     const cards = [
         { 
@@ -159,7 +159,7 @@ const HorizontalScroll = () => {
                                 className="pointer-events-auto flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#0f0f0f] text-white rounded-full font-body text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#38b5e8] transition-all duration-300 shadow-xl hover:scale-105"
                             >
                                 <LayoutGrid size={16} className="md:w-5 md:h-5"/> 
-                                <span className="hidden md:inline">View All</span>
+                                <span className="hidden md:inline">View More</span>
                             </button>
                         </div>
                         <motion.div style={{ x }} className="flex gap-4 md:gap-8 px-6 md:px-20 pt-20 md:pt-0">
@@ -215,7 +215,7 @@ const HorizontalScroll = () => {
                                 className="flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#0f0f0f] text-white rounded-full font-body text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#38b5e8] transition-all duration-300 shadow-xl hover:scale-105"
                             >
                                 <ArrowLeft size={16} className="md:w-5 md:h-5"/> 
-                                <span className="hidden md:inline">Back</span>
+                                <span className="hidden md:inline">View Less</span>
                             </button>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px] lg:auto-rows-[350px] grid-flow-dense mt-8">
