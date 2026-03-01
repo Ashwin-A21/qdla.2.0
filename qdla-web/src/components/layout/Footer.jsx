@@ -2,10 +2,11 @@ import React from 'react';
 import RevealOnScroll from '../ui/RevealOnScroll';
 import QdlaLogo from '../ui/QdlaLogo';
 
-const FooterLink = ({ href = '#', children }) => (
+const FooterLink = ({ href = '#', children, ...props }) => (
     <li>
         <a
             href={href}
+            {...props}
             className="group flex items-center gap-1.5 py-1 text-white/40 hover:text-[#38b5e8] transition-colors duration-300"
         >
             <span className="inline-block w-0 group-hover:w-3 h-px bg-[#38b5e8] transition-all duration-300 origin-left" />
@@ -55,7 +56,7 @@ const Footer = () => (
                             <FooterLink>Twitter</FooterLink>
                             <FooterLink>LinkedIn</FooterLink>
                             <FooterLink>GitHub</FooterLink>
-                            <FooterLink>Instagram</FooterLink>
+                            <FooterLink href="https://www.instagram.com/qdla.in/" target="_blank" rel="noopener noreferrer">Instagram</FooterLink>
                         </ul>
                     </div>
                     <div>
