@@ -1,11 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs';
 
-const AnimatedLogo = ({ className }) => {
+const AnimatedLogo = ({ className, isZooming = true }) => {
     const svgRef = useRef(null);
     const groupRef = useRef(null);
+    const hasStartedRef = useRef(false);
     
     useEffect(() => {
+        if (!isZooming || hasStartedRef.current) return;
+        hasStartedRef.current = true;
+
         let timer;
         let floatAnim;
         
@@ -71,7 +75,7 @@ const AnimatedLogo = ({ className }) => {
                 anime.remove(groupRef.current);
             }
         };
-    }, []);
+    }, [isZooming]);
 
     return (
         <svg id="animated-svg" ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340.06 656.4" className={className}>

@@ -1,14 +1,21 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import AnimatedLogo from '../ui/AnimatedLogo';
 import spaceImg from '../../assets/hero/space2.png';
 import portalHoleImg from '../../assets/hero/portal-hole.png';
 
 const HeroZoom = () => {
     const containerRef = useRef(null);
+    const [isZooming, setIsZooming] = useState(false);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
+    });
+
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        if (latest > 0.02 && !isZooming) {
+            setIsZooming(true);
+        }
     });
 
     const coverScale = useTransform(scrollYProgress, [0, 1], [1, 5]); 
@@ -36,7 +43,7 @@ const HeroZoom = () => {
                     style={{ scale: titleScale, opacity: titleOpacity, filter: useTransform(titleBlur, (v) => `blur(${v})`), y: titleY }}
                     className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none drop-shadow-2xl px-4 -mt-16 md:-mt-32"
                 >
-                    <AnimatedLogo className="text-white h-auto w-[50vw] md:w-[20vw] filter drop-shadow-lg" />
+                    <AnimatedLogo isZooming={isZooming} className="text-white h-auto w-[50vw] md:w-[20vw] filter drop-shadow-lg" />
                     <motion.p 
                         initial={{ opacity: 0 }} 
                         animate={{ opacity: 1 }} 
