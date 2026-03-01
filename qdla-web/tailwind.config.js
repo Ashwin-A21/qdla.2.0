@@ -11,7 +11,9 @@ export default {
         'xs': '375px',
       },
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
+        'quote-header': ['var(--font-quote-header)'],
+        'quote-body': ['var(--font-quote-body)']
       },
       colors: {
         qdla: {

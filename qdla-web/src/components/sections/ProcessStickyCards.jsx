@@ -103,7 +103,7 @@ const ServiceCard = ({ service, index, total, scrollYProgress }) => {
                     >
                         Service
                     </span>
-                    <span className="font-header text-3xl font-black select-none" style={{ color: service.accent, opacity: 0.25 }}>
+                    <span className="font-header text-3xl font-bold select-none" style={{ color: service.accent, opacity: 0.25 }}>
                         {service.number}
                     </span>
                 </div>
@@ -121,7 +121,7 @@ const ServiceCard = ({ service, index, total, scrollYProgress }) => {
                     <div>
                         {/* Colored top line */}
                         <div className="w-10 h-[3px] rounded-full mb-5" style={{ backgroundColor: service.accent }} />
-                        <h3 className="font-header text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#0f0f0f] leading-tight mb-3">
+                        <h3 className="font-header text-2xl md:text-3xl font-semibold uppercase tracking-tight text-[#0f0f0f] leading-snug mb-3 drop-shadow-sm">
                             {service.title}
                         </h3>
                         <p className="font-body text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl">
@@ -177,7 +177,7 @@ const ProcessStickyCards = () => {
                                      px-4 py-1.5 rounded-full border border-[#38b5e8]/25 bg-[#38b5e8]/6">
                         What We Do
                     </span>
-                    <h2 className="font-header text-5xl md:text-8xl font-black uppercase text-[#0f0f0f] tracking-tighter leading-none mb-6">
+                    <h2 className="font-header text-5xl md:text-8xl font-bold tracking-tight text-[#0f0f0f] leading-none mb-6">
                         Our <span className="text-[#38b5e8]">Services</span>
                     </h2>
                     <p className="font-body text-gray-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed">

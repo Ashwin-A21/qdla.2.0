@@ -151,8 +151,8 @@ const HorizontalScroll = () => {
                     >
                         <div className="absolute top-10 left-6 md:left-20 right-6 md:right-20 z-20 flex justify-between items-end pointer-events-none">
                             <RevealOnScroll className="pointer-events-auto">
-                                <h2 className="text-4xl md:text-7xl font-header font-black uppercase tracking-tighter mb-2 text-[#0f0f0f]">Selected Works</h2>
-                                <p className="text-black/40 text-xs md:text-md font-body font-bold uppercase tracking-widest">Scroll to explore</p>
+                                <h2 className="text-4xl md:text-7xl font-header font-bold tracking-tight mb-2 text-[#0f0f0f]">Selected Works</h2>
+                                <p className="text-black/50 text-xs md:text-sm font-body font-medium uppercase tracking-[0.25em]">Scroll to explore</p>
                             </RevealOnScroll>
                             <button 
                                 onClick={handleViewAll}
@@ -185,7 +185,7 @@ const HorizontalScroll = () => {
                                         <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full z-10">
                                             <p className="text-[10px] md:text-xs font-body font-bold tracking-[0.2em] text-[#38b5e8] mb-3 uppercase transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.22,1,0.36,1]">{card.category}</p>
                                             <div className="flex justify-between items-end gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.22,1,0.36,1]">
-                                                <h3 className="text-white text-3xl md:text-5xl font-header font-black leading-none tracking-tighter uppercase drop-shadow-md">{card.title}</h3>
+                                                <h3 className="text-white text-3xl md:text-5xl font-header font-semibold leading-[1.1] tracking-tight drop-shadow-md">{card.title}</h3>
                                                 <div className="bg-white/10 text-white p-4 rounded-full backdrop-blur-md group-hover:bg-white group-hover:text-black transition-all group-hover:rotate-45 duration-700 shadow-lg flex-shrink-0 scale-90 group-hover:scale-100">
                                                     <MoveUpRight size={22} strokeWidth={2.5} />
                                                 </div>
@@ -207,8 +207,8 @@ const HorizontalScroll = () => {
                     >
                         <div className="flex justify-between items-end mb-16">
                             <RevealOnScroll>
-                                <h2 className="text-4xl md:text-7xl font-header font-black uppercase tracking-tighter mb-2 text-[#0f0f0f]">Selected Works</h2>
-                                <p className="text-black/40 text-xs md:text-md font-body font-bold uppercase tracking-widest">All Projects Directory</p>
+                                <h2 className="text-4xl md:text-7xl font-header font-bold tracking-tight mb-2 text-[#0f0f0f]">Selected Works</h2>
+                                <p className="text-black/50 text-xs md:text-sm font-body font-medium uppercase tracking-[0.25em]">All Projects Directory</p>
                             </RevealOnScroll>
                             <button 
                                 onClick={handleBack}
