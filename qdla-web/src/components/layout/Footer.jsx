@@ -72,7 +72,7 @@ const Footer = () => (
 
             {/* bottom bar */}
             <div className="border-t border-white/[0.06] pt-8 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-xs text-white/25 text-center md:text-left">
-                <p>© {new Date().getFullYear()} Qdla. All rights reserved. Made with ♥ in Mangalore.</p>
+                <p>© {new Date().getFullYear()} Qdla. All rights reserved. Made with <a href="https://ash-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-[#38b5e8] transition-colors">♥</a> in Mangalore.</p>
                 <div className="flex gap-6 md:gap-8">
                     <a href="#" className="hover:text-[#38b5e8] transition-colors">Privacy Policy</a>
                     <a href="#" className="hover:text-[#38b5e8] transition-colors">Terms of Service</a>

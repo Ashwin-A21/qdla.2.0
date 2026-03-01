@@ -61,8 +61,8 @@ const AnimatedLogo = ({ className, isZooming = true }) => {
         };
 
         playAnimation();
-        // The animation needs to repeat every 15 secs
-        timer = setInterval(playAnimation, 15000);
+        // The animation needs to repeat every 10 secs
+        timer = setInterval(playAnimation, 10000);
 
         return () => {
             clearInterval(timer);
