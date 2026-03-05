@@ -54,7 +54,7 @@ const Footer = () => (
                     <div>
                         <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Social</h4>
                         <ul className="space-y-1">
-                            <FooterLink>Twitter</FooterLink>
+                            <FooterLink href="https://x.com/QDLA_in" target="_blank" rel="noopener noreferrer">Twitter</FooterLink>
                             <FooterLink href="https://www.linkedin.com/company/qdla-in/" target="_blank" rel="noopener noreferrer">LinkedIn</FooterLink>
                             <FooterLink href="https://github.com/QDLA" target="_blank" rel="noopener noreferrer">GitHub</FooterLink>
                             <FooterLink href="https://www.instagram.com/qdla.in/" target="_blank" rel="noopener noreferrer">Instagram</FooterLink>
