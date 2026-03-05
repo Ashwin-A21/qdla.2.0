@@ -185,7 +185,7 @@ const HorizontalScroll = () => {
                                         <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full z-10">
                                             <p className="text-[10px] md:text-xs font-body font-bold tracking-[0.2em] text-[#38b5e8] mb-3 uppercase transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.22,1,0.36,1]">{card.category}</p>
                                             <div className="flex justify-between items-end gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.22,1,0.36,1]">
-                                                <h3 className="text-white text-3xl md:text-5xl font-header font-semibold leading-[1.1] tracking-tight drop-shadow-md">{card.title}</h3>
+                                                <h3 className="text-white text-3xl md:text-5xl font-header font-semibold leading-[1.1] tracking-normal drop-shadow-md">{card.title}</h3>
                                                 <div className="bg-white/10 text-white p-4 rounded-full backdrop-blur-md group-hover:bg-white group-hover:text-black transition-all group-hover:rotate-45 duration-700 shadow-lg flex-shrink-0 scale-90 group-hover:scale-100">
                                                     <MoveUpRight size={22} strokeWidth={2.5} />
                                                 </div>
@@ -280,7 +280,7 @@ const HorizontalScroll = () => {
                                             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full z-10 flex flex-col justify-end h-full">
                                                 <div className="flex justify-between items-end gap-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-[0.22,1,0.36,1]">
                                                     <div className="max-w-[85%]">
-                                                        <h3 className="text-white text-2xl md:text-4xl font-header font-black leading-none tracking-tighter uppercase mb-3 drop-shadow-md">{card.title}</h3>
+                                                        <h3 className="text-white text-2xl md:text-4xl font-header font-black leading-none tracking-normal uppercase mb-3 drop-shadow-md">{card.title}</h3>
                                                         <div className="overflow-hidden">
                                                             <p className="text-white/80 text-xs font-body font-medium leading-relaxed transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-[0.22,1,0.36,1] delay-75 line-clamp-2">
                                                                 {card.description}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Phone } from 'lucide-react';
 import RevealOnScroll from '../ui/RevealOnScroll';
 import QdlaLogo from '../ui/QdlaLogo';
 
@@ -54,13 +55,13 @@ const Footer = () => (
                         <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Social</h4>
                         <ul className="space-y-1">
                             <FooterLink>Twitter</FooterLink>
-                            <FooterLink>LinkedIn</FooterLink>
-                            <FooterLink>GitHub</FooterLink>
+                            <FooterLink href="https://www.linkedin.com/company/qdla-in/" target="_blank" rel="noopener noreferrer">LinkedIn</FooterLink>
+                            <FooterLink href="https://github.com/QDLA" target="_blank" rel="noopener noreferrer">GitHub</FooterLink>
                             <FooterLink href="https://www.instagram.com/qdla.in/" target="_blank" rel="noopener noreferrer">Instagram</FooterLink>
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Contact</h4>
+                        <h4 className="font-bold mb-4 md:mb-6 text-sm text-white/60 uppercase tracking-widest">Email</h4>
                         <ul className="space-y-1">
                             <FooterLink href="mailto:info@qdla.in">info@qdla.in</FooterLink>
                             <FooterLink href="mailto:sales@qdla.in">sales@qdla.in</FooterLink>
@@ -72,11 +73,25 @@ const Footer = () => (
             </div>
 
             {/* bottom bar */}
-            <div className="border-t border-white/[0.06] pt-8 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-xs text-white/25 text-center md:text-left">
-                <p>© {new Date().getFullYear()} Qdla. All rights reserved. Made with <a href="https://ash-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-[#38b5e8] transition-colors">♥</a> in Mangalore.</p>
-                <div className="flex gap-6 md:gap-8">
-                    <a href="#" className="hover:text-[#38b5e8] transition-colors">Privacy Policy</a>
-                    <a href="#" className="hover:text-[#38b5e8] transition-colors">Terms of Service</a>
+            <div className="border-t border-white/[0.06] pt-8 md:pt-10 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8 text-xs text-white/40 text-center lg:text-left">
+                <p className="flex-shrink-0 text-white/25">© {new Date().getFullYear()} Qdla. All rights reserved. Made with <a href="https://ash-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-[#38b5e8] transition-colors">♥</a> in Mangalore.</p>
+                <div className="flex flex-wrap justify-center lg:justify-end gap-x-8 gap-y-4 font-medium tracking-wide">
+                    <div className="flex items-center gap-4 md:gap-6">
+                        <a href="tel:+919945507345" className="group flex items-center gap-2 hover:-translate-y-0.5 transition-transform duration-300">
+                            <span className="text-[#38b5e8]/80 group-hover:text-[#38b5e8] font-bold tracking-[0.2em] text-[9px] uppercase transition-colors">Shahir</span>
+                            <span className="text-white/40 group-hover:text-white/90 text-xs tracking-wide transition-colors whitespace-nowrap">+91 99455 07345</span>
+                        </a>
+                        <span className="w-1 h-1 rounded-full bg-white/10 hidden sm:block"></span>
+                        <a href="tel:+919353021184" className="group flex items-center gap-2 hover:-translate-y-0.5 transition-transform duration-300">
+                            <span className="text-[#38b5e8]/80 group-hover:text-[#38b5e8] font-bold tracking-[0.2em] text-[9px] uppercase transition-colors">Raj B</span>
+                            <span className="text-white/40 group-hover:text-white/90 text-xs tracking-wide transition-colors whitespace-nowrap">+91 93530 21184</span>
+                        </a>
+                    </div>
+                    <div className="flex items-center gap-6 text-white/25">
+                        <span className="w-px h-3 bg-white/10 hidden lg:block"></span>
+                        <a href="#" className="hover:text-white/60 transition-colors whitespace-nowrap">Privacy Policy</a>
+                        <a href="#" className="hover:text-white/60 transition-colors whitespace-nowrap">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </div>
