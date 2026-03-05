@@ -36,7 +36,7 @@ function App() {
     }, []);
 
     const images = [
-        { src: '/images/showcase/website.png', alt: 'Website' },
+        { src: '/images/showcase/website3.jpg', alt: 'Website' },
         { src: '/images/showcase/photography.png', alt: 'Photography' },
         { src: '/images/showcase/design.png', alt: 'Design' },
         { src: '/images/showcase/social_media.png', alt: 'Social Media' },
