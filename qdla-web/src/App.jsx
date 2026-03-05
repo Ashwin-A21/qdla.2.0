@@ -36,10 +36,10 @@ function App() {
     }, []);
 
     const images = [
-        { src: '/images/showcase/website3.jpg', alt: 'Website' },
-        { src: '/images/showcase/photography.png', alt: 'Photography' },
-        { src: '/images/showcase/design.png', alt: 'Design' },
-        { src: '/images/showcase/social_media.png', alt: 'Social Media' },
+        { src: '/images/showcase/new2.jpeg', alt: 'chat' },
+        { src: '/images/showcase/photogr.jpeg', alt: 'Photography' },
+        { src: '/images/showcase/website3.jpg', alt: 'website' },
+        { src: '/images/showcase/new1.jpeg', alt: 'Social Media' },
         { src: '/images/showcase/branding.png', alt: 'Branding' },
         // { src: '/images/showcase/website_2.png', alt: 'Website Showcase' },
         { src: '/images/showcase/design_2.png', alt: 'Design Showcase' },
